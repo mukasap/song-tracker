@@ -1,0 +1,16 @@
+module.exports = {
+  port: process.env.PORT || 3000,
+  db: {
+    database: process.env.DB_NAME || 'songtracker',
+    user: process.env.DB_USER || 'songtracker',
+    password: process.env.DB_PASSWORD || 'songtracker',
+    options: {
+      dialect: process.env.DIALECT || 'sqlite',
+      host: process.env.HOST || 'localhost',
+      storage: './songtracker.sqlite'
+    }
+  },
+  authentication: {
+    jwtSecret: process.env.JWT_SECRET || 'kaamaKange'
+  }
+}

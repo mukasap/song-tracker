@@ -1,17 +1,17 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <panel title="Register">
-        <form name="register-form" autocomplete="off">
-            <v-text-field name="email" v-model="email" label="Email Address"></v-text-field>
-            <v-text-field name="password" v-model="password" label="Password" type="password"></v-text-field>
-            <div class="error" v-html="error" />
-            
-            <v-btn class="green" @click="register" dark>Register</v-btn>
-          </form>
+      <panel>
+        <form name="login-form" autocomplete="off">
+          <v-text-field name="email" v-model="email" label="Email Address"></v-text-field>
+          <v-text-field name="password" v-model="password" label="Password" type="password"></v-text-field>
+          <div class="error" v-html="error" />
+          <v-btn class="green" @click="login" dark>Login</v-btn>
+        </form>
       </panel>
     </v-flex>
-  </v-layout>  
+  </v-layout>
+  
 </template>
 
 <script>
@@ -27,9 +27,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthService.register({
+        const response = await AuthService.login({
           email: this.email,
           password: this.password
         })
@@ -48,7 +48,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* .error{
+.error{
   color: red;
-} */
+}
 </style>
